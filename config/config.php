@@ -1,17 +1,14 @@
 <?php
-// die Konstanten auslagern in eigene Datei
-// geladen wird.
- 
-// Damit alle Fehler angezeigt werden
+//Formular
+//Startseite:
+$minlengthwildcard = 32;	//Minimale Länge für das Fmular Feld Wildcard
+$maxlengthwildcard = 32;	//Maximale Länge für das Fmular Feld Wildcard
+
 error_reporting(E_ALL);
- 
-// Zum Aufbau der Verbindung zur Datenbank
-// die Daten erhalten Sie von Ihrem Provider
+
+//MySQL
 define ( 'MYSQL_HOST',      'localhost' );
- 
-// bei XAMPP ist der MYSQL_Benutzer: root
-define ( 'MYSQL_BENUTZER',  '' );
+define ( 'MYSQL_BENUTZER',  'root' );
 define ( 'MYSQL_KENNWORT',  '' );
-define ( 'MYSQL_DATENBANK', '');
-// für unser Bsp. nennen wir die DB adressverwaltung
+define ( 'MYSQL_DATENBANK', 'WildCard');
 ?>
