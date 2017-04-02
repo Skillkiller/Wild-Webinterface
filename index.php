@@ -35,10 +35,32 @@ $db_link = mysqli_connect (MYSQL_HOST,
                            MYSQL_DATENBANK);
 if ( $db_link )
 {
-    if (isset($_GET['card'])) {
+    if (isset($_GET['copy'])) {
 		//Weiterleitung einstellen
 		
-		
+		?>
+		<body>
+		<script src="dist/js/clipboard.min.js"></script>
+		<script>new Clipboard('.btn');</script>
+			<div class="col-md-4" style="margin-top: 10px; margin-right: auto; /* Abstand rechts */ margin-bottom: 10px; margin-left: auto; /* Abstand links */ float: none;">
+				<div class="box box-info">
+					<div class="box-header with-border">
+						<h3 class="box-title">Copy</h3>
+						<div class="box-tools pull-right">				
+						<button type="button" class="btn btn-block btn-success btn-sm" data-clipboard-target="#foo"><span class="glyphicon glyphicon-copy"></span></button>
+						</div><!-- /.box-tools -->
+					</div><!-- /.box-header -->
+					<div class="box-body">
+					<input id="foo" class="form-control input-lg" readonly placeholder="Error!" type="text" value="<?php echo $_GET['copy'];?>">
+					</div><!-- /.box-body -->
+				</div><!-- /.box -->
+				
+				
+				
+			</div>
+		</body>
+		<?php
+		die();
 	}
     
 	?>
