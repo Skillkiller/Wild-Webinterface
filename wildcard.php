@@ -48,7 +48,7 @@ if ( $db_link )
 						<div class="box-header with-border">
 							<h3 class="box-title">Wildcard ungültig!</h3>
 						</div>
-						<div class=box-body">
+						<div class="box-body">
 							<p>Diese Wildcard wurde entweder bereits verwendet oder sie exestiert nicht!</p>
 							<p>Leite dich zurück auf die Startseite.</p>
 						</div>
@@ -68,15 +68,47 @@ if ( $db_link )
 			$db_erg = mysqli_query( $db_link, $sql );
 			if ( ! $db_erg) {
 				//Das Updaten der Datenbank schlug fehl
-				die('Ungültige Abfrage: ' . mysqli_error());
+				?>
+				<body>
+					<div class="col-md-4" style="margin-top: 10px; margin-right: auto; /* Abstand rechts */ margin-bottom: 10px; margin-left: auto; /* Abstand links */ float: none;">
+						<div class="box box-solid box-danger">
+							<div class="box-header with-border">
+								<h3 class="box-title">Unerwarteter Fehler!</h3>
+							</div>
+							<div class="box-body">
+								<p>Es ist leider ein unerwarter Fehler aufgetreten! Das tut uns leid :C</p>
+								<p>Leite dich zurück auf die Startseite.</p>
+							</div>
+						</div>
+					</div>
+					<meta http-equiv="refresh" content="5; URL=index.php"  />	
+				</body>
+				<?php
+				die();
 			}
 			
 			//INSERT INTO `player` (`id`, `name`, `card`) VALUES (NULL, 'username', '123');
 			$sql = "INSERT INTO `player` (`id`, `name`, `card`) VALUES (NULL, '" . $_POST['username'] . "', '" . $_POST['card'] . "')";
 			$db_erg = mysqli_query( $db_link, $sql );
 			if ( ! $db_erg ) {
-				//Das Eintragen des Benutzers schlug fehl!
-				die('Ungültige Abfrage: ' . mysqli_error());
+				//Fehler beim Einfügen des Spielers auf die Whitelist
+				?>
+				<body>
+					<div class="col-md-4" style="margin-top: 10px; margin-right: auto; /* Abstand rechts */ margin-bottom: 10px; margin-left: auto; /* Abstand links */ float: none;">
+						<div class="box box-solid box-danger">
+							<div class="box-header with-border">
+								<h3 class="box-title">Unerwarteter Fehler!</h3>
+							</div>
+							<div class="box-body">
+								<p>Es ist leider ein unerwarter Fehler aufgetreten! Das tut uns leid :C</p>
+								<p>Leite dich zurück auf die Startseite.</p>
+							</div>
+						</div>
+					</div>
+					<meta http-equiv="refresh" content="5; URL=index.php"  />	
+				</body>
+				<?php
+				die();
 			}
 			
 			?>
@@ -94,8 +126,7 @@ if ( $db_link )
 						<p>Viel Spaß</p>
 					</div><!-- /.box-body -->
 				</div><!-- /.box -->
-			</div>
-				
+			</div>	
 			</body>
 			<?php
 			
@@ -109,7 +140,7 @@ if ( $db_link )
 						<div class="box-header with-border">
 							<h3 class="box-title">Wildcard ungültig</h3>
 						</div>
-						<div class=box-body">
+						<div class="box-body">
 							<p>Diese Wildcard wurde bereits zu oft verwendet!</p>
 							<p>Leite dich zurück auf die Startseite.</p>
 						</div>
@@ -131,7 +162,7 @@ if ( $db_link )
 					<div class="box-header with-border">
 						<h3 class="box-title">Keine Angaben!</h3>
 					</div>
-					<div class=box-body">
+					<div class="box-body">
 						<p>Du hast leider nicht alle benötigten Daten angegeben!</p>
 						<p>Leite dich zurück auf die Startseite.</p>
 					</div>
