@@ -33,9 +33,6 @@ $db_link = mysqli_connect (MYSQL_HOST,
                            MYSQL_BENUTZER, 
                            MYSQL_KENNWORT, 
                            MYSQL_DATENBANK);
-						   
-						   
-
 if ( $db_link )
 {
     if (isset($_GET['card'])) {
@@ -61,14 +58,14 @@ if ( $db_link )
 						  <label for="inputWildCard" class="col-sm-2 control-label">Wildcard</label>
 
 						  <div class="col-sm-10">
-							<input class="form-control" id="inputWildCard" placeholder="WildCard" type="text" minlength="<?php echo $minlengthwildcard;?>" maxlength="<?php echo $maxlengthwildcard;?>" required>
+							<input class="form-control" name="card" id="inputWildCard" placeholder="WildCard" type="text" minlength="<?php echo $minlengthwildcard;?>" maxlength="<?php echo $maxlengthwildcard;?>" required>
 						  </div>
 						</div>
 						<div class="form-group">
 						  <label for="inputUsername" class="col-sm-2 control-label">Username</label>
 
 						  <div class="col-sm-10">
-							<input class="form-control" id="inputUsername" placeholder="Username" type="text" maxlength="16" required>
+							<input class="form-control" name="username" id="inputUsername" placeholder="Username" type="text" maxlength="16" required>
 						  </div>
 						</div>
 					  </div>
